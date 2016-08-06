@@ -3,12 +3,12 @@
 #include <string.h>
 #include <vector>
 using namespace std;
-//ÅÅÁĞµÄÎÊÌâ
+//æ’åˆ—çš„é—®é¢˜
 template<typename T>
 void Permutation(T* pStr,unsigned startpos,vector<T*>& pvec,size_t N){
 	if(startpos == N - 1){
 
-		//½â¾öµÄÊÇÕı·½Ìå¶Ô½ÇÏßÎÊÌâ
+		//è§£å†³çš„æ˜¯æ­£æ–¹ä½“å¯¹è§’çº¿é—®é¢˜
 		/*if(((pStr[0] + pStr[1] + pStr[2] + pStr[3]) == (pStr[4] + pStr[5] + pStr[6] + pStr[7]))&&
 			((pStr[0] + pStr[2] + pStr[4] + pStr[6]) == (pStr[1] + pStr[3] + pStr[5] + pStr[7]))&&
 			((pStr[0] + pStr[1] + pStr[4] + pStr[5]) == (pStr[2] + pStr[3] + pStr[6] + pStr[7]))){
@@ -18,7 +18,7 @@ void Permutation(T* pStr,unsigned startpos,vector<T*>& pvec,size_t N){
 				pvec.push_back(a);
 		}*/
 
-		//½â¾öµÄÊÇ°Ë»ÊºóÎÊÌâ
+		//è§£å†³çš„æ˜¯å…«çš‡åé—®é¢˜
 		bool isbreak = false;
 		for(size_t i = 0;i < N;i++){
 			for(size_t j = 0;j < N ;j++)
@@ -43,7 +43,7 @@ void Permutation(T* pStr,unsigned startpos,vector<T*>& pvec,size_t N){
 				pStr[i] = pStr[startpos];
 				pStr[startpos] = temp;
 				Permutation(pStr,startpos + 1,pvec,N);
-				temp = pStr[i];      //Ö»ÊÇÎªÁË»Ö¸´Ô­À´µÄÊı×é
+				temp = pStr[i];      //åªæ˜¯ä¸ºäº†æ¢å¤åŸæ¥çš„æ•°ç»„
 				pStr[i] = pStr[startpos];
 				pStr[startpos] = temp;
 
@@ -58,7 +58,7 @@ void Permutation(T* pstr,vector<T*>& pvec,size_t N){
 	Permutation(pstr,0,pvec,N);
 }
 
-//×éºÏµÄÎÊÌâ
+//ç»„åˆçš„é—®é¢˜
 void Combination(char* pstr,int i,vector<char>& cvec){
 	if(pstr == NULL || (*pstr == '\0' && i !=0))
 		return;
@@ -84,7 +84,7 @@ void Combination(char* pstr){
 		printf("\n");
 	}
 }
-//ÇóÈ¡Õı·½ĞÎÉÏ½ÇµÄÎÊÌâ£¬²¢ÇÒÊ¹µÃ¶ÔÃæµÄºÍÏàÍ¬
+//æ±‚å–æ­£æ–¹å½¢ä¸Šè§’çš„é—®é¢˜ï¼Œå¹¶ä¸”ä½¿å¾—å¯¹é¢çš„å’Œç›¸åŒ
 template<typename T,size_t F>
 void PermutationQuestion(T (&pstr)[F]){
 	if(pstr == NULL)
