@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//求树的子结构，而不是判断一棵树是不是另一棵的子树
 struct BinaryTreeNode{
 	int m_nValue;
 	BinaryTreeNode* m_pLeft;
 	BinaryTreeNode* m_pRight;
 };
+//判断一棵树里面含不含有另一棵树的子结构
 bool DoesTree1HaveTree2(BinaryTreeNode* pRoot1,BinaryTreeNode* pRoot2){
 	if(pRoot2 == NULL)
 		return true;
@@ -15,6 +17,7 @@ bool DoesTree1HaveTree2(BinaryTreeNode* pRoot1,BinaryTreeNode* pRoot2){
 		return false;
 	return DoesTree1HaveTree2(pRoot1->m_pLeft,pRoot2->m_pLeft) && DoesTree1HaveTree2(pRoot1->m_pRight,pRoot2->m_pRight);
 }
+//接口函数。
 bool HasSubtree(BinaryTreeNode* pRoot1,BinaryTreeNode* pRoot2){
 	bool result = false;
 	if(pRoot1 != NULL && pRoot2 != NULL){
@@ -27,20 +30,21 @@ bool HasSubtree(BinaryTreeNode* pRoot1,BinaryTreeNode* pRoot2){
 	}
 	return result;
 }
+//根据前缀和中缀序列，建立二叉树。
 BinaryTreeNode* build(int* startPreOrder,int* endPreOrder,int* startInOrder,int* endInOrder){
 	int rootValue = startPreOrder[0];
 	BinaryTreeNode* root = new BinaryTreeNode();
 	root->m_nValue = rootValue;
 	root->m_pLeft = root->m_pRight = NULL;
-	if(startPreOrder == endPreOrder){
-		if(startInOrder == endInOrder && *startPreOrder == *startInOrder)
+	if(startPreOrder == endPreOrder){  //当前缀的开始等于前缀的结束的时候，表示递归的终止条件。
+		if(startInOrder == endInOrder && *startPreOrder == *startInOrder)//最后一个节点的时候。
 			return root;
 		else{
 			perror("Invalid Input");
 			return NULL;
 		}
 	}
-	//���������ҵ����ڵ�;
+	//临时变量，在中序序列中寻找根的位置。
 	int* rootInOrder = startInOrder;
 	while(rootInOrder <= endInOrder && *rootInOrder != rootValue)
 		++rootInOrder;
@@ -48,14 +52,15 @@ BinaryTreeNode* build(int* startPreOrder,int* endPreOrder,int* startInOrder,int*
 		perror("Invalid Input");
 		return NULL;
 	}
-	int leftLength = rootInOrder - startInOrder;
-	int* leftPreOrderEnd = startPreOrder + leftLength;
-	if(leftLength > 0)
+	int leftLength = rootInOrder - startInOrder;//记录左子树中长度。
+	int* leftPreOrderEnd = startPreOrder + leftLength;//记录左子树中的最后一个节点。
+	if(leftLength > 0)//递归建立左子树
 		root->m_pLeft = build(startPreOrder + 1,leftPreOrderEnd,startInOrder,rootInOrder - 1);
-	if(leftLength < endPreOrder - startPreOrder)
+	if(leftLength < endPreOrder - startPreOrder)//递归建立右子树
 		root->m_pRight = build(leftPreOrderEnd + 1,endPreOrder,rootInOrder + 1,endInOrder);
 	return root;
 }
+//接口函数
 BinaryTreeNode* buildTree(int* preorder, int* inorder, int length){
 	if (preorder == NULL || inorder == NULL || length <= 0)
 		return NULL;
