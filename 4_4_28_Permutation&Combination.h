@@ -62,16 +62,16 @@ void Permutation(T* pstr,vector<T*>& pvec,size_t N){
 void Combination(char* pstr,int i,vector<char>& cvec){
 	if(pstr == NULL || (*pstr == '\0' && i !=0))
 		return;
-	if(i == 0){
+	if(i == 0){//递归停止条件，当加入了i个元素之后，然后开始输出
 		for(vector<char>::iterator iter = cvec.begin();iter != cvec.end();++iter)
 			printf("%c",*iter);
 		printf("\n");
 		return;
 	}
 	cvec.push_back(*pstr);
-	Combination(pstr + 1,i - 1,cvec);
+	Combination(pstr + 1,i - 1,cvec);//表示加入第一个元素，然后递归求下面的i-1个点。
 	cvec.pop_back();
-	Combination(pstr + 1,i,cvec);
+	Combination(pstr + 1,i,cvec);//表示不加第一个元素,递归求i个点的组合
 }
 
 void Combination(char* pstr){
