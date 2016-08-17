@@ -1,7 +1,12 @@
+/*
+è¯·å®ç°ä¸€ä¸ªå‡½æ•°ï¼Œå°†ä¸€ä¸ªå­—ç¬¦ä¸²ä¸­çš„ç©ºæ ¼æ›¿æ¢æˆâ€œ%20â€ã€‚
+ä¾‹å¦‚ï¼Œå½“å­—ç¬¦ä¸²ä¸ºWe Are Happy.
+åˆ™ç»è¿‡æ›¿æ¢ä¹‹åçš„å­—ç¬¦ä¸²ä¸ºWe%20Are%20Happyã€‚
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//Ìæ»»¿Õ¸ñ
+
 char* replace(char* str)
 {
 	if (str == NULL)
@@ -16,13 +21,14 @@ char* replace(char* str)
 	int tmp = i + 2 * count;
 	if (tmp == i)
 		return NULL;
-	//(*str) = (char*)realloc((*str), sizeof(char)*(tmp));//ÊÇÒòÎªµ±str1Îª³£Á¿Ö¸Õë£¬¶østr3Ö»ÊÇ¸öÖ¸Õë±äÁ¿²»ÄÜÖØĞÂ·ÖÅä¿Õ¼ä
+	//(*str) = (char*)realloc((*str), sizeof(char)*(tmp));
+	//æ˜¯å› ä¸ºå½“str1ä¸ºå¸¸é‡æŒ‡é’ˆï¼Œè€Œstråªæ˜¯ä¸ªæŒ‡é’ˆå˜é‡ä¸èƒ½é‡æ–°åˆ†é…ç©ºé—´
 	char* str1 = (char*)malloc(sizeof(char)*(tmp));
 	if (!str1)
 		return NULL;
 	tmp = tmp - 1;
 	i = i - 1;
-	while (i >= 0)// ×¢ÒâÕâÀïÒ»¶¨²»Òª·ÃÎÊÔ½½ç£¬·ñÔò½«³öÏÖÎŞ·¨Îö¹¹Êı×éµÄÇé¿ö
+	while (i >= 0)// æ³¨æ„è¿™é‡Œä¸€å®šä¸è¦è®¿é—®è¶Šç•Œï¼Œå¦åˆ™å°†å‡ºç°æ— æ³•ææ„æ•°ç»„çš„æƒ…å†µ
 	{
 		if (str[i] != ' ')
 			str1[tmp--] = str[i--];
@@ -67,9 +73,9 @@ void replaceSpace(char *str,int length) {
 
 void Test()
 {
-	char str1[] = "hello world may";//str1ÊÇ¸ö³£Á¿
+	char str1[] = "hello world may";//str1æ˜¯ä¸ªå¸¸é‡
 	char str2[] = "hello world";
-	char* str3 = "hello world";//str3ÀïÃæµÄÄÚÈİÊÇ³£Á¿
+	char* str3 = "hello world";//str3é‡Œé¢çš„å†…å®¹æ˜¯å¸¸é‡
 	char* str4 = "hello world";
 
 	replaceSpace(str2,11);
