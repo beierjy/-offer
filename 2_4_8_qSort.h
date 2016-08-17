@@ -9,7 +9,7 @@ void Swap(int& a, int& b)
 	a = b;
 	b = temp;
 }
-//Ëæ»úµÄ¿ìËÙÅÅĞòËã·¨
+//éšæœºçš„å¿«é€Ÿæ’åºç®—æ³•
 size_t partition(int* a, size_t low,size_t hight){
 	if (a != NULL && low >= 0 && hight >= low)
 	{
@@ -33,7 +33,7 @@ int Partition(int* data, int start, int end){
 		int small = start - 1;
 		for (index = start; index < end; ++index)
 		{
-			if (data[index] <= data[end]){
+			if (data[index] <= data[end]){//ä»¥æœ€åä½ç½®çš„æ•°ä¸ºåˆ†å‰²ç‚¹
 				++small;
 				if (small != index)
 					Swap(data[index], data[small]);
@@ -52,7 +52,7 @@ void quicksort(int* a,int start,int end){
 		quicksort(a, part + 1, end);
 	}
 }
-//ÄêÁäÅÅĞò£¬Ëã·¨µÄ¸´ÔÓ¶ÈÎªO(n)
+//å¹´é¾„æ’åºï¼Œç®—æ³•çš„å¤æ‚åº¦ä¸ºO(n)
 void sortAges(int* Age, int length)
 {
 	if (Age == NULL || length < 0)
@@ -73,7 +73,7 @@ void sortAges(int* Age, int length)
 	}
 }
 
-//Ñ°ÕÒ×îĞ¡Ğı×ªÊı×éµÄ×îĞ¡Öµ
+//å¯»æ‰¾æœ€å°æ—‹è½¬æ•°ç»„çš„æœ€å°å€¼
 int Min(int* number, int length){
 	if (number == NULL || length <= 0){
 		perror("invalid array");
