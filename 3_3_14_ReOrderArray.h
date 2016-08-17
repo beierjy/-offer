@@ -1,3 +1,4 @@
+//å°†æ‰€æœ‰çš„å¥‡æ•°ç§»åˆ°å¶æ•°å‰é¢
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -6,7 +7,7 @@ void swap(int &a,int &b){
 	a = b;
 	b = tmp;
 }
-
+//æ™®é€šçš„äº¤æ¢çš„æ–¹æ³•
 void reorderOddEven(int* pData,int length){
 	if(pData == NULL || length <= 0)
 		return;
@@ -21,11 +22,12 @@ void reorderOddEven(int* pData,int length){
 			swap(pData[optr],pData[eptr]);
 	}
 }
+//ä½¿ç”¨å‡½æ•°æŒ‡é’ˆ
 void Reorder(int *pData,unsigned int length,bool (*func)(int)){
-	if(pData == NULL || length <= 0)//×¢ÒâÕâÀïµÄ²âÊÔĞèÒªlengthÈç¹û´óÓÚÊı×éµÄ»°Ò²»á³öÏÖÎÊÌâ
+	if(pData == NULL || length <= 0)//æ³¨æ„è¿™é‡Œçš„æµ‹è¯•éœ€è¦lengthå¦‚æœå¤§äºæ•°ç»„çš„è¯ä¹Ÿä¼šå‡ºç°é—®é¢˜
 		return;
 	int* pBegin = pData;
-	int *pEnd = pData + length - 1;
+	int* pEnd = pData + length - 1;
 	while(pBegin < pEnd){
 		while(pBegin < pEnd && !func(*pBegin))
 			++pBegin;
