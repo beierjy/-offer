@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//两个栈模拟一个队列
 #ifndef CQUEUE_H
 #define CQUEUE_H
 template <class T> class CQueue{
@@ -55,6 +56,7 @@ void Test1(){
 	d = q.deleteHead();
 	cout << a << b << c << endl;
 }
+//两个队列模拟一个栈
 #ifndef CSTACK_H
 #define CSTACK_H
 template <class T> class CStack{
@@ -70,7 +72,7 @@ private:
 #endif
 template<class T>
 void CStack<T>::insert(const T& element){
-	/*T temp;û�б�Ҫ��
+	/*T temp;Ã»ÓÐ±ØÒªµÄ
 	if (!queue1.empty())
 	{
 		while (!queue1.empty())
