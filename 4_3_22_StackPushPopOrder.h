@@ -1,3 +1,4 @@
+//判断一个序列是不是另一个序列的出栈序列，使用辅助栈模拟出栈顺序
 #include <stdlib.h>
 #include <stdio.h>
 #include <stack>
@@ -40,7 +41,7 @@ bool IsPopOrder(const int* pPush,const int* pPop,int nLength){
 		stack<int> stackData;
 		while(pNextPop - pPop < nLength){
 			while(stackData.empty() || stackData.top() != *pNextPop){
-				if(pNextPush - pPush == nLength)
+				if(pNextPush - pPush == nLength)//如果序列已到末尾便停止
 					break;
 				stackData.push(*pNextPush);
 				pNextPush++;
