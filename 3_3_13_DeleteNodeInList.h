@@ -1,3 +1,4 @@
+//删除链表里指定的节点
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -16,8 +17,7 @@ void InsertNode(listLink* pListHead,int m_value){
 	ptr->m_pNext = *pListHead;
 	*pListHead = ptr;
 }
-
-
+//普通的方法删除
 void DeleteNode(listLink *pListHead,listNode* pToBeDelete){
 	if(pListHead == NULL|| !pToBeDelete)
 		return;
@@ -34,7 +34,7 @@ void DeleteNode(listLink *pListHead,listNode* pToBeDelete){
 	free(pToBeDelete);
 	pToBeDelete = NULL;
 }
-
+//替换的方法
 void DeleteNode1(listLink *pListHead,listNode* pToBeDelete){
 	if(!pListHead || !pToBeDelete)
 		return;
