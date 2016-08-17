@@ -1,3 +1,8 @@
+/*
+大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。
+n<=39
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -10,7 +15,7 @@ int AddFrom1Ton_Interative(int n){
 		result += i;
 	return result;
 }
-//����Fibonaccis����
+//计算Fibonaccis数列
 long long Fabonaccis(unsigned int n){
 	if (n == 0)
 		return 0;
@@ -37,6 +42,6 @@ void Test()
 {
 	int a = 50;
 	long long f = Fabonaccis1(a);
-	printf("%lld\n",f);//��ӡ�����εķ���
+	printf("%lld\n",f);//打印长整形的方法
 	printf("exit");
 }
