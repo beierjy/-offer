@@ -1,8 +1,11 @@
+/*
+è¾“å…¥ä¸€ä¸ªé“¾è¡¨ï¼Œä»å°¾åˆ°å¤´æ‰“å°é“¾è¡¨æ¯ä¸ªèŠ‚ç‚¹çš„å€¼ã€‚ 
+*/
 #include <stdlib.h>
 #include <stdio.h> 
 typedef struct Node{
 	int m_nValue;
-	struct Node *m_pNext;//ÕâµØÒª¼ÓÉÏstruct¹Ø¼ü×Ö
+	struct Node *m_pNext;//è¿™åœ°è¦åŠ ä¸Šstructå…³é”®å­—
 }ListNode,*ListLink;
 
 void addToTail(ListLink* pHead, int value){
@@ -42,9 +45,9 @@ void removeNode(ListLink* pHead, int value){
 	}
 }
 
-//´ÓÎ²µ½Í·´òÓ¡Á´±í;
+//ä»å°¾åˆ°å¤´æ‰“å°é“¾è¡¨;
 void PrintListReversingly_Iteratively(ListLink pHead){
-	//¶ÔÓÚreallocµÄÊ¹ÓÃ¾­³£³öÏÖ´íÎó£¬×¢ÒâÔÚÖØĞÂ·ÖÅäÄÚ´æÖ®Ç°²»ÒªÓÃÆäËûµÄÖ¸ÕëÃû×ÖÖ¸ÏòÔ­À´µÄÖ¸Õë;
+	//å¯¹äºreallocçš„ä½¿ç”¨ç»å¸¸å‡ºç°é”™è¯¯ï¼Œæ³¨æ„åœ¨é‡æ–°åˆ†é…å†…å­˜ä¹‹å‰ä¸è¦ç”¨å…¶ä»–çš„æŒ‡é’ˆåå­—æŒ‡å‘åŸæ¥çš„æŒ‡é’ˆ;
 	ListNode* pNode = pHead;
 	int i = 0;
 	int size = 0;
@@ -69,7 +72,7 @@ void PrintListReversingly_Iteratively(ListLink pHead){
 	free(nodes);
 	nodes = NULL;
 }
-
+//ç›´æ¥é€’å½’å¯ä»¥åå‘è¾“å‡º
 void PrintListReversingly_Recursive(ListLink pHead){
 	if (pHead != NULL)
 	{
