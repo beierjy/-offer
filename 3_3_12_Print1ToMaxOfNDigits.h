@@ -1,3 +1,7 @@
+/*
+输入数字n,打印从1到n位最大的正整数。
+陷阱：n可能是个很大的数
+*/
 #include <stdlib.h>
 #include <stdio.h>
 #include <memory.h>
@@ -58,6 +62,7 @@ void Print1ToMaxOfNDigits(const int n){
 	}
 	free (number);
 }
+//全排列，每一位都全排列
 void Print1ToMaxOfDigitsRecursively(char* number,int length,int index){
 	if(index == length - 1){
 		PrintNumber(number);
@@ -66,7 +71,7 @@ void Print1ToMaxOfDigitsRecursively(char* number,int length,int index){
 	 for(int i = 0; i< 10;++i)
 	 {
 		 number[index + 1] = i + '0';
-		  Print1ToMaxOfDigitsRecursively(number,length,index + 1);
+		 Print1ToMaxOfDigitsRecursively(number,length,index + 1);
 	 }
 }
 
