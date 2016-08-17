@@ -1,3 +1,5 @@
+//计算链表的倒数的K个，该类型的算法可以求是否环形结构和求中间的那个数。
+//注意空指针与k的值是否符合要求
 #include <stdio.h>
 #include <stdlib.h>
 struct ListNode{
@@ -38,7 +40,7 @@ ListNode* FindKthToTail(ListNode* pListHead,unsigned int k)
 	return pBehind;
 }
 void Test(){
-	ListNode* head = NULL;//ע������һ��Ҫ��ʼ��ΪNULL����ָ��������ʲô��
+	ListNode* head = NULL;//注意这里一定要初始化为NULL否则不指定分配了什么数
 	addToTail(&head, 1);
 	addToTail(&head, 2);
 	addToTail(&head, 3);
