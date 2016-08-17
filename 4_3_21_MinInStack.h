@@ -1,3 +1,4 @@
+//每次把最小值加入辅助栈，便形成含有最小值的栈
 #include <iostream>
 #include <stack>
 #include <assert.h>
