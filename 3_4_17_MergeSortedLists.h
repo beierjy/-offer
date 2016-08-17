@@ -1,3 +1,4 @@
+//灏嗕袱涓湁搴忕殑閾捐〃鍚堝苟
 #include <stdlib.h>
 #include <stdio.h> 
 struct ListNode{
@@ -46,7 +47,7 @@ void PrintListReversingly_Recursive(ListNode* pHead){
 	}
 }
 void Test(){
-	ListNode* head1 = NULL;//注意这里一定要初始化为NULL否则不指定分配了什么数
+	ListNode* head1 = NULL;//娉ㄦ剰杩欓噷涓�瀹氳鍒濆鍖栦负NULL鍚﹀垯涓嶆寚瀹氬垎閰嶄簡浠�涔堟暟
 	ListNode* head2 = NULL;
 	addToTail(&head1, 1);
 	addToTail(&head2, 2);
