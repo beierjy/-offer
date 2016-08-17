@@ -1,3 +1,4 @@
+//æ±‚æ ‘çš„é•œåƒï¼Œå³æ ‘çš„å·¦å³å­©å­äº¤æ¢
 #include <stdlib.h>
 #include <stdio.h>
 #include <stack>
@@ -8,7 +9,7 @@ struct BinaryTreeNode{
 	BinaryTreeNode* m_pLeft;
 	BinaryTreeNode* m_pRight;
 };
-//Ö»ÄÜ½¨ÉèÂú¶ş²æÊ÷
+//åªèƒ½å»ºè®¾æ»¡äºŒå‰æ ‘
 BinaryTreeNode* buildTree(int* treeValue,int start,int end){
 	if(treeValue == NULL || end < 0 || start < 0)
 		return NULL;
@@ -24,7 +25,7 @@ BinaryTreeNode* buildTree(int* treeValue,int start,int end){
 		root->m_pRight = buildTree(treeValue,start + mid + 1,end);
 	return root;
 }
-//Çó½â¶ş²æÊ÷µÄ¾µÏñ
+//æ±‚è§£äºŒå‰æ ‘çš„é•œåƒ
 void MirrorRecursively(BinaryTreeNode* pNode){
 	if(pNode == NULL)
 		return;
@@ -38,6 +39,7 @@ void MirrorRecursively(BinaryTreeNode* pNode){
 	if(pNode->m_pRight)
 		MirrorRecursively(pNode->m_pRight);
 }
+//è¿­ä»£çš„æ–¹æ³•æ±‚è§£
 void Mirror(BinaryTreeNode* pNode){
 	if(pNode == NULL)
 		return;
