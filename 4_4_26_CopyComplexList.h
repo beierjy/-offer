@@ -1,15 +1,14 @@
+//实现一个函数，复制一个复杂的链表，在复杂链表上除了有一个p_next指针还有个pSibling指针
+//算法思想是：先克隆一遍链表，然后再将两个链表分开。
 #include <stdio.h>
 #include <stdlib.h>
-#include <map>
-
-using namespace std;
 
 struct ComplexListNode{
 	int m_nValue;
 	ComplexListNode* m_pNext;
 	ComplexListNode* m_pSibling;
 };
-
+//复制结点
 void CloneNodes(ComplexListNode* pHead){
 	ComplexListNode* pNode = pHead;
 	while(pNode != NULL){
@@ -21,7 +20,7 @@ void CloneNodes(ComplexListNode* pHead){
 		pNode = newNode->m_pNext;
 	}
 }
-
+//复制结点的sibling链接
 void ConnectSiblingNodes(ComplexListNode* pHead){
 	ComplexListNode* pNode = pHead;
 	while(pNode != NULL){
@@ -32,7 +31,7 @@ void ConnectSiblingNodes(ComplexListNode* pHead){
 		pNode = pCloned->m_pNext;
 	}
 }
-
+//将两个链表分开
 ComplexListNode* ReconnectNodes(ComplexListNode* pHead){
 	ComplexListNode* pNode = pHead;
 	ComplexListNode* pClonedHead = NULL;
