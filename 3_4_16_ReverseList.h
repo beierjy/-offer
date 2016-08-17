@@ -1,3 +1,4 @@
+//鍙嶈浆閾捐〃锛屾敞鎰忕┖閾捐〃锛岄摼琛ㄥ彧鏈変竴涓厓绱犵殑鎯呭喌
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -35,7 +36,7 @@ ListNode* ReverseList(ListNode* pHead){
 	return pReversedHead;
 }
 void Test(){
-	ListNode* head = NULL;//注意这里一定要初始化为NULL否则不指定分配了什么数
+	ListNode* head = NULL;//娉ㄦ剰杩欓噷涓�瀹氳鍒濆鍖栦负NULL鍚﹀垯涓嶆寚瀹氬垎閰嶄簡浠�涔堟暟
 	addToTail(&head, 1);
 	addToTail(&head, 2);
 	addToTail(&head, 3);
