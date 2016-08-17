@@ -1,3 +1,5 @@
+//求二叉树的路径和是某一个数。
+//使用先序遍历，用一个栈保存路径
 #include <stdlib.h>
 #include <stdio.h>
 #include <vector>
@@ -13,6 +15,7 @@ void FindPath(BinaryTreeNode *pRoot,int expectedSum,vector<int>& path,int curren
 	currentSum += pRoot->m_nValue;
 	path.push_back(pRoot->m_nValue);
 	bool isLeaf = pRoot->m_pLeft == NULL && pRoot->m_pRight == NULL;
+	//如果是叶结点并且数目恰好是路径上的结点的和正好是输入的值
 	if(currentSum == expectedSum && isLeaf)
 	{
 		printf("The path is found\n");
@@ -23,10 +26,12 @@ void FindPath(BinaryTreeNode *pRoot,int expectedSum,vector<int>& path,int curren
 		}
 		printf("\n");
 	}
+	//如果不是结点 则遍历他的叶节点
 	if(pRoot->m_pLeft != NULL)
 		FindPath(pRoot->m_pLeft,expectedSum,path,currentSum);
 	if(pRoot->m_pRight != NULL)
 		FindPath(pRoot->m_pRight,expectedSum,path,currentSum);
+	//返回上一个节点
 	path.pop_back();
 }
 
