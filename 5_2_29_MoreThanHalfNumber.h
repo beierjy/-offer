@@ -1,20 +1,36 @@
+/*数组中有一个数字出现的次数超过数组长度的一半，
+请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。
+由于数字2在数组中出现了5次，
+超过数组长度的一半，因此输出2。如果不存在则输出0。
+*/
 #include <iostream>
 #include <vector>
 using namespace std;
+
+//运用快速排序的划分的思想
+bool g_bInputInvalid = false;
+bool CheckInvalidArray(vector<int>& numbers){
+	g_bInputInvalid = false;
+	if(numbers.size()<=0)
+		g_bInputInvalid = true;
+	return g_bInputInvalid;
+}
 
 bool checkMoreThanHalf(vector<int>& numbers,int number){
         if(numbers.size() == 0)
             return false;
         int num = 0;
-		for(vector<int>::iterator iter= numbers.begin();iter != numbers.end();++iter){
+	for(vector<int>::iterator iter= numbers.begin();iter != numbers.end();++iter){
             if(*iter == number)
             	num ++;
-		}
+	}
         if(num * 2 >= numbers.size())
             return true;
-            else
-            return false;        
-    }
+        else{
+        	g_bInputInvalid = true;
+            	return false;        
+    	}
+}
 int partition(vector<int>& numbers,int begin,int end){
     if(numbers.size() == 0 || begin < 0 || end < 0)
         return 0;
@@ -25,7 +41,7 @@ int partition(vector<int>& numbers,int begin,int end){
            int temp = numbers[j];
            numbers[j] = numbers[i];
            numbers[i] = temp; 
-		   i--;
+	   i--;
        }
        j--;
     }
@@ -48,7 +64,7 @@ int MoreThanHalfNumber(vector<int>& numbers){
 		}
 		else{
 			start = index + 1;
-            index = partition(numbers,start,end);
+                	index = partition(numbers,start,end);
 		}
     }
     int result = numbers[middle];
@@ -64,6 +80,7 @@ int MoreThanHalfNum_Solution(vector<int> numbers) {
     return result;
     
 }
+//统计最后个数不小于1的元素
  int MoreThanHalfNum_Solution1(vector<int> numbers) {
         if(numbers.size() == 0)
             return 0;
