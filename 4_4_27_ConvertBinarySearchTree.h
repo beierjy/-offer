@@ -1,3 +1,8 @@
+/*
+输入一棵二叉搜索树，
+将该二叉搜索树转换成一个排序的双向链表。
+要求不能创建任何新的结点，只能调整树中结点指针的指向。
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,7 +18,7 @@ void ConvertNode(BinaryTreeNode* pNode,BinaryTreeNode** pLastNodeInList){
 	BinaryTreeNode* pCurrent = pNode;
 	if(pCurrent->m_pLeft != NULL)
 		ConvertNode(pCurrent->m_pLeft,pLastNodeInList);
-	pCurrent->m_pLeft = *pLastNodeInList;
+	pCurrent->m_pLeft = *pLastNodeInList; //处理根节点
 	if((*pLastNodeInList) != NULL)
 		(*pLastNodeInList)->m_pRight = pCurrent;
 	*pLastNodeInList = pCurrent;
@@ -28,7 +33,7 @@ BinaryTreeNode* Convert(BinaryTreeNode* pRootOfTree){
 	BinaryTreeNode* pLastNodeInList = NULL;
 	ConvertNode(pRootOfTree,&pLastNodeInList);
 
-	BinaryTreeNode* pHead = pLastNodeInList;
+	BinaryTreeNode* pHead = pLastNodeInList;//找到根节点
 	while(pHead != NULL && pHead->m_pLeft != NULL)
 		pHead = pHead->m_pLeft;
 	return pHead;
