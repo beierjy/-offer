@@ -1,3 +1,9 @@
+/*
+求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？
+为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,
+但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,
+可以很快的求出任意非负整数区间中1出现的次数。
+*/
 #include <iostream>
 #include <cstdio>
 #include <string.h>
@@ -25,11 +31,12 @@ int NumberOf1(const char* strN){
 	if(length == 1 && first > 0)
 		return 1;
 
-	int numFirstDigit = 0;
+	int numFirstDigit = 0;//求第一位是1时候的数字有多少个
 	if(first > 1)
 		numFirstDigit = PowerBase10(length - 1);
 	else if(first == 1)
 		numFirstDigit = atoi(strN + 1) + 1;
+	//求除了第一位是1之后的有1的个数，其中first*(length-1)是剩余的length-1位总共有length-1中可能选择一个位为1
 	int numOtherDigits = first  *(length - 1)* PowerBase10(length - 2);
 	int numRecursive = NumberOf1(strN + 1);
 	return  numFirstDigit + numOtherDigits + numRecursive;
