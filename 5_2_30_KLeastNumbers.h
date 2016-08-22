@@ -1,8 +1,14 @@
+/*
+输入n个整数，找出其中最小的K个数。
+例如输入4,5,1,6,2,7,3,8这8个数字，
+则最小的4个数字是1,2,3,4,。
+*/
 #include <iostream>
 #include <vector>
 #include<algorithm>
 #include <set>
 
+//采用快速排序划分的方法，只适用于数组可以改变的情况
 using namespace std;
 void swap(int& a,int& b){
     int temp = a;
@@ -22,15 +28,14 @@ int partition(vector<int>& input,int begin,int end){
     while(j <= end){
 		if(input[j] <= part){
 			++i;
-            swap(input[i],input[j]);
-		}
+                swap(input[i],input[j]);
+	}
         j++;
     }
     swap(input[i],input[begin]);
     return i;   
 }
         
-
 vector<int> GetLeastNumbers_Solution(vector<int> input, int k) {
     vector<int> output;
 	if(input.size() == 0)
@@ -51,6 +56,7 @@ vector<int> GetLeastNumbers_Solution(vector<int> input, int k) {
 		output.push_back(input[i]);
     return output;   
 }
+//采用大根堆存储最小的k个数，时间复杂度为O(nlogk);
 vector<int> GetLeastNumbers_Solution1(vector<int> input, int k) {
         vector<int> output; multiset<int,greater<int> > leastNumbers;
         if(k <= 0 || input.size() < k)
