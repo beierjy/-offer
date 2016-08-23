@@ -1,3 +1,7 @@
+/*
+输入一个数字S，查找至少两个数，
+使得他们的和正好是S，如果有多对数字的和等于S，。
+*/
 #include <iostream>
 #include <vector>
 using namespace std;
