@@ -1,3 +1,4 @@
+//求树的深度和是否平衡
 #include <iostream>
 #include <math.h>
 
