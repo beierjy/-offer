@@ -24,6 +24,7 @@ int TreeDepth(TreeNode* pRoot){
         depth = right + 1;
     return depth;
 }
+//判断一棵树是不是平衡二叉树，每个结点需要遍历多次，效率低
 bool IsBalanced(TreeNode* pRoot){
     if(pRoot == NULL)
         return true;
@@ -45,7 +46,7 @@ bool IsBalanced(TreeNode* pRoot,int& depth){
     if(IsBalanced(pRoot->left,left) && IsBalanced(pRoot->right,right)){
         int diff = left - right;
         if(abs(diff) <= 1){
-            depth = 1+(left > right?left:right);
+            depth = 1+(left > right ? left:right);
             return true;
         }
     }
