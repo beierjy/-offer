@@ -34,7 +34,7 @@ ListNode* FindFirstCommonNode(ListNode* pHead1,ListNode* pHead2){
                 pNode1 = pNode1->next;
         }
     }
-    while(pNode1 != pNode2 && pNode1!= NULL){
+    while(pNode1 != pNode2 && pNode1!= NULL&&*pNode1!=*pNode2){
         pNode1 = pNode1->next;
         pNode2 = pNode2->next;
     }
