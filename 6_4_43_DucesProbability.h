@@ -1,3 +1,6 @@
+/*
+求n个骰子的和。
+*/
 #include <iostream>
 #include <vector>
 #include <math.h>
@@ -6,6 +9,7 @@
 using namespace std;
 int g_maxValue = 6;
 //#if 0
+//递归求解
 void Probability(int number,int* pProbability);
 void Probability(int original,int current,int sum,int*pProbability);
 void PrintProbability(int number){
@@ -30,6 +34,7 @@ void Probability(int number,int* pProbability){
 }
 
 void Probability(int original,int current,int sum,int*pProbability){
+    //original指的是原始的n的数目，current表示当前的骰子数目，sum表示此时的骰子的总点数
     if(current == 1)
         pProbability[sum - original]++;
     else{
@@ -39,6 +44,7 @@ void Probability(int original,int current,int sum,int*pProbability){
     }
 }
 //#endif
+//一个数组的第n个数是另一个数组的n-6到n-1的和。
 #if 0
 void PrintProbability(int number){
     if(number < 1){
@@ -61,7 +67,7 @@ void PrintProbability(int number){
         for(int i = k;i <= g_maxValue * k;++i){
             pProbability[1-flog][i] = 0;
             for(int j = 1;j <= i && j <= g_maxValue;j++){
-                pProbability[1-flog] += pProbability[flog][i-j];
+                pProbability[1-flog][i] += pProbability[flog][i-j];
             }
         flog = 1-flog;
         }
