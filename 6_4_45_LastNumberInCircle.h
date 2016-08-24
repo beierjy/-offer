@@ -1,7 +1,9 @@
+//圆圈里最后剩下的数字，约瑟夫环的问题
 #include <iostream>
 #include <list>
 
 using namespace std;
+//经典的环形算法
 int LastRemaining(unsigned int n,unsigned int m){
     if(n < 1 || m < -1)
         return -1;
@@ -27,6 +29,7 @@ int LastRemaining(unsigned int n,unsigned int m){
      }
      return *(numbers.begin());
 }
+//数学的方法。
 int LastRemaining1(unsigned int n,unsigned int m){
     if(n < 1 || m < 1)
         return -1;
