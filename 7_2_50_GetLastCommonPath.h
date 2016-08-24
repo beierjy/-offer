@@ -1,3 +1,4 @@
+//求一棵树的第一个公共父结点。
 #include <iostream>
 #include <list>
 
