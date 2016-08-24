@@ -1,5 +1,7 @@
+//不使用乘除和循环和判断等实现1+2+3+...+n
 #include <iostream>
 using namespace std;
+//使用构造函数解来消除循环
 class Temp{
 public:
     Temp(){
@@ -22,6 +24,7 @@ unsigned int Sum_Solution1(unsigned int n){
     delete[] a;
     return Temp::GetSum();
 }
+//使用虚函数来判断是否为递归结构的条件
 class A;
 A* array[2];
 class A{
@@ -43,6 +46,7 @@ int Sum_Solution2(int n){
     int value = array[1]->Sum(n);
     return value;
 }
+//使用函数指针，不同的条件下调用不同的函数。
 typedef unsigned int (*fun)(unsigned int);
 unsigned int Solution3_Teminator(unsigned int n){
     return 0;
@@ -51,6 +55,7 @@ unsigned int Sum_Solution3(unsigned int n){
     static fun f[2]={Solution3_Teminator,Sum_Solution3};
     return n+f[n!!](n-1);
 }
+//使用非类型模板和非类型模板特化来计算
 template <unsigned int n>struct Sum_Solution4{
     enum Value{N = Sum_Solution4<n-1>::N + n};
 }
