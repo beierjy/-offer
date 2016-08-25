@@ -2,7 +2,7 @@
 #include <cctype>
 
 using namespace std;
-//������
+//暴力求解
 bool isDigital(char* str){
 	if(str == NULL || *str=='\0')
 		return false;
@@ -46,10 +46,12 @@ bool isDigital(char* str){
 	}
 	return true;
 }
+//过滤掉数字
 void scanDigits(char** str){
 	while(**str != '\0' && isdigit(**str))
 		(*str)++;
 }
+//判断是不是指数形式
 bool isExponential(char** str){
 	if(**str != 'e' || **str != 'E')
 		return false;
