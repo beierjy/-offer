@@ -13,15 +13,13 @@ void Print(BinaryTreeNode* pRoot){
 	if(pRoot == NULL)
 		return;
 	queue<BinaryTreeNode* > q;
-	stack<int> s;
-	queue<int> q1;
 	int numNext=0;
 	int numToBe = 1;
-	int tag = 1;
 	q.push(pRoot);
 	BinaryTreeNode* pNode = NULL;
 	while(!q.empty()){
 		pNode = q.front();
+		cout<<pNode->value<<" ";
 		if(pNode->p_left != NULL){
 			q.push(pNode->p_left);
 			numNext++;
@@ -30,36 +28,16 @@ void Print(BinaryTreeNode* pRoot){
 			q.push(pNode->p_right);
 			numNext++;
 		}
-		if(tag == 1)
-			q1.push(pNode->value);
-		else
-			s.push(pNode->value);
-		numToBe--;
 		q.pop();
+		numToBe--;
 		if(numToBe==0){
-			int  a;
-			if(tag == 0){
-				while(!s.empty()){
-					a = s.top();
-					cout<<a<<"\t";
-					s.pop();
-				}
-			}
-			else{
-				while(!q1.empty()){
-					a = q1.front();
-					cout<<a<<"\t";
-					q1.pop();
-				}
-			}
 			cout<<endl;
 			numToBe = numNext;
 			numNext = 0;
-			tag = tag^1;
 		}
 	}
 }
-void Test(){
+int  main(){
 	BinaryTreeNode *root = new BinaryTreeNode;
 	BinaryTreeNode *a = new BinaryTreeNode;
 	BinaryTreeNode *b = new BinaryTreeNode;
@@ -84,4 +62,6 @@ void Test(){
 	Print(root);
 	delete root;
 	delete a;delete b;delete c;delete d;delete e;delete f;
+	system("pause");
+	return 0;
 }
