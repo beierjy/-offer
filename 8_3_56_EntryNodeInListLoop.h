@@ -1,3 +1,7 @@
+/*
+一个链表中包含环，请找出该链表的环的入口结点。
+*/
+
 #include <iostream>
 
 using namespace std;
@@ -65,7 +69,7 @@ void Test(){
 	e->m_value = 6;
 	d->next = e;
     e->next = b;
-	ListNode *f;//����newһ��
+	ListNode *f;//²»ÄÜnewÒ»¸ö
 	f = EntryNodeofLoop(head);
 	cout<<f->m_value<<endl;
 	delete head;
