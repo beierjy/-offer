@@ -6,7 +6,7 @@ typedef struct Node{
 	struct Node* p_left;
 	struct Node* p_right;
 }BinaryTreeNode;
-//两次递归效率很低
+//涓ゆ閫掑綊鏁堢巼寰堜綆
 int countNodes(BinaryTreeNode* pRoot){
 	if(pRoot == NULL)
 		return 0;
@@ -25,7 +25,7 @@ BinaryTreeNode* KthNode(BinaryTreeNode* pRoot,int k){
 	else
 		return KthNode(pRoot->p_left,k);
 }
-//采用中序遍历，一次递归
+//閲囩敤涓簭閬嶅巻锛屼竴娆￠�掑綊
 BinaryTreeNode* KthNodeCore(BinaryTreeNode* pRoot,unsigned int& k){
 	BinaryTreeNode* target = NULL;
 	if(pRoot->p_left != NULL)
