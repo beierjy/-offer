@@ -1,3 +1,5 @@
+/*请实现两个函数，分别用来序列化和反序列化二叉树
+*/
 #include <sstream>
 #include <iostream>
 #include <string>
@@ -10,6 +12,7 @@ typedef struct Node{
 	struct Node* p_right;
 }BinaryTreeNode;
 
+//序列化到流
 void Serialize(BinaryTreeNode* pRoot,ostream& stream){
 	if(pRoot == NULL)
 	{
@@ -20,6 +23,7 @@ void Serialize(BinaryTreeNode* pRoot,ostream& stream){
 	Serialize(pRoot->p_left,stream);
 	Serialize(pRoot->p_right,stream);
 }
+//从流中读取每一个数字
 bool ReadStream(istream& stream,int* number){
 	if(stream.eof())
 		return false;
@@ -40,6 +44,7 @@ bool ReadStream(istream& stream,int* number){
 	}
 	return false;
 }
+//建立二叉树
 void Deserialize(BinaryTreeNode** pRoot,istream& stream){
 	int number;
 	if(ReadStream(stream,&number)){
