@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//hash表记录坐标，重复的记为负数
 char FirstAppearingOnce(const char* str){
 	if(str == NULL)
 		return '\0';
@@ -18,16 +19,17 @@ char FirstAppearingOnce(const char* str){
 			Hash[(int)(str[j])] = -2;
 		j++;
 	}
-	int min = 257;
+	int min = 0x7FFFFFFF;
 	for(int k = 0;k < 256;k++){
 		if(Hash[k] >= 0 && Hash[k] < min){
 			min = Hash[k];
 		}
 	}
-	if(min >= 0 && min < 256)
+	if(min >= 0)
 		ch = str[min];
 	return ch;
 }
+//用类实现
 class CharStatistics
 {
 public:
