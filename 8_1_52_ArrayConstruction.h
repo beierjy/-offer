@@ -1,6 +1,10 @@
+/*给定一个数组A[0,1,...,n-1],请构建一个数组B[0,1,...,n-1],
+其中B中的元素B[i]=A[0]*A[1]*...*A[i-1]*A[i+1]*...*A[n-1]。不能使用除法。
+*/
 #include <iostream>
 #include <vector>
 using namespace std;
+//新建两个数组记录左右
 void multiply(const vector<double>& array1,vector<double>& array2){
 	if(array1.size() <= 0)
 		return;
@@ -17,6 +21,7 @@ void multiply(const vector<double>& array1,vector<double>& array2){
 	delete[] left;
 	delete[] right;
 }
+//不使用额外的空间，直接在数组2上面操作
 void multiply1(const vector<double>& array1,vector<double>& array2){
 	int len1=array1.size();
 	int len2=array2.size();
